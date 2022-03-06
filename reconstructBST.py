@@ -14,8 +14,8 @@ def reconstructBst(preOrderTraversalValues):
 	
 	rightSubTreeRootIdx = noNodes
 	
-	for idx, value in enumerate(preOrderTraversalValues):
-		if value > currVal:
+	for idx in range(1, len(preOrderTraversalValues)):
+		if preOrderTraversalValues[idx] >= currVal:
 			rightSubTreeRootIdx = idx
 			break
 	
