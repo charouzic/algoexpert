@@ -11,8 +11,6 @@ class TreeInfo:
         self.height = height
 
 def binaryTreeDiameter(tree):
-    # Write your code here.
-	
     return getHeightOfTree(tree).diameter
 
 def getHeightOfTree(tree):
