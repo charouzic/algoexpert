@@ -15,10 +15,7 @@ def heightBalancedBinaryTree(tree):
     # Write your code here.
 	treeInfo = checkTree(tree)
 	
-	if treeInfo.isBalanced:
-		return True
-	
-	return False
+	return treeInfo.isBalanced
 
 def checkTree(tree):
 	if tree is None:
