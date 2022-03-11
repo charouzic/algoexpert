@@ -68,7 +68,18 @@ class DoublyLinkedList:
         # Write your code here.
         if position == 1:
             self.setHead(nodeToInsert)
-        pass
+            return
+        
+        node = self.head
+        currPos = 1
+        while node is not None and currPos != position:
+            node = node.next
+            currPos += 1
+        
+        if node is not None:
+            self.insertBefore(node, nodeToInsert)
+        else:
+            self.setTail(nodeToInsert)
 
     def removeNodesWithValue(self, value):
         # Write your code here.
@@ -87,7 +98,7 @@ class DoublyLinkedList:
             
         # what if it is a tail?
         if node == self.tail:
-            self.setTail = self.teail.prev
+            self.setTail = self.tail.prev
             
         self.updateAndRemoveNodePointers(node)
 
