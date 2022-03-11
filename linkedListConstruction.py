@@ -22,7 +22,7 @@ class DoublyLinkedList:
             node.prev.prev.next = node
             
             node.prev= node.prev.prev
-            node.prev.
+            #node.prev
         pass
 
     def setTail(self, node):
@@ -47,9 +47,28 @@ class DoublyLinkedList:
 
     def remove(self, node):
         # Write your code here.
-        pass
+        if node.next is not None and node.prev is not None:
+            node.prev.next = node.next
+            node.next.prev = node.prev
+        
+        # what if it is a head?
+        if self.head is node:
+            self.setHead(node)
+            
+        # what if it is a tail?
+        if self.tail is node:
+            self.setTail(node)
+        
+        
 
     def containsNodeWithValue(self, value):
         # Write your code here.
-        pass
-
+        # aka search
+        currNode = self.head
+        while currNode is not None and currNode.value != value:
+            currNode = currNode.next
+                
+        if currNode == None:
+            return False
+        return True
+                
