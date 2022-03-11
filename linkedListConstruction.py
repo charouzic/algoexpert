@@ -17,49 +17,80 @@ class DoublyLinkedList:
         self.tail = None
 
     def setHead(self, node):
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            self.insertBefore(self.head, node)
         # Write your code here.
-        while node.prev is not None:
-            node.prev.prev.next = node
-            
-            node.prev= node.prev.prev
-            #node.prev
-        pass
 
     def setTail(self, node):
         # Write your code here.
-        pass
+        if self.head is None:
+            self.setHead(node)
+        else:
+            self.insertAfter(self.tail, node)
 
     def insertBefore(self, node, nodeToInsert):
         # Write your code here.
-        pass
+        if nodeToInsert == self.head and nodeToInsert == self.tail:
+            return
+        self.remove(nodeToInsert)
+        nodeToInsert.prev = node.prev
+        nodeToInsert.next = node
+        
+        if node.prev is None:
+            self.head = nodeToInsert
+            
+        else:
+            node.prev.next = nodeToInsert
+            
+        node.prev = nodeToInsert
 
     def insertAfter(self, node, nodeToInsert):
         # Write your code here.
-        pass
+        if nodeToInsert == self.head and nodeToInsert == self.tail:
+            return
+        
+        self.remove(nodeToInsert)
+        nodeToInsert.prev = node
+        nodeToInsert.next = node.next
+        
+        if node.next is None:
+            self.tail = nodeToInsert
+            
+        else:
+            node.next.prev = nodeToInsert
+            
+        node.next = nodeToInsert
 
     def insertAtPosition(self, position, nodeToInsert):
         # Write your code here.
+        if position == 1:
+            self.setHead(nodeToInsert)
         pass
 
     def removeNodesWithValue(self, value):
         # Write your code here.
-        pass
+        node = self.head
+        
+        while node is not None:
+            nodeToRemove = node
+            node = node.next
+            if nodeToRemove.value == value:
+                self.remove(nodeToRemove)
 
     def remove(self, node):
-        # Write your code here.
-        if node.next is not None and node.prev is not None:
-            node.prev.next = node.next
-            node.next.prev = node.prev
-        
         # what if it is a head?
-        if self.head is node:
-            self.setHead(node)
+        if node == self.head:
+            self.head = self.head.next
             
         # what if it is a tail?
-        if self.tail is node:
-            self.setTail(node)
-        
-        
+        if node == self.tail:
+            self.setTail = self.teail.prev
+            
+        self.updateAndRemoveNodePointers(node)
+
 
     def containsNodeWithValue(self, value):
         # Write your code here.
@@ -68,7 +99,15 @@ class DoublyLinkedList:
         while currNode is not None and currNode.value != value:
             currNode = currNode.next
                 
-        if currNode == None:
-            return False
-        return True
+        return currNode is not None
                 
+        
+    def updateAndRemoveNodePointers(self, node):
+        if node.prev is not None:
+            node.prev.next = node.next
+        
+        if node.next is not None: 
+            node.next.prev = node.prev
+        
+        node.prev = None
+        node.next = None
