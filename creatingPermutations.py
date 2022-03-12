@@ -17,3 +17,7 @@ def helperF(i, arr, permutations):
 
 def swap(array, i, j):
 	array[i], array[j] = array[j], array[i]
+	
+## COMPLEXITY:
+# space => O(N! * N) where n is the number of elements in the input array
+# time => O(N! * N)
