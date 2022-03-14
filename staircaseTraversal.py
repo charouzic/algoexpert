@@ -21,6 +21,7 @@ def traverse(height, maxSteps, ways):
 # time -> O(s^h) where h is the height of the staircase and s is the maximum steps we can take
 # space: O(h)
 
+## MEMOIZATION
 def _staircaseTraversal(height, maxSteps):
     # Write your code here.
     memotable = {0:1, 1:1}
@@ -46,3 +47,23 @@ def _traverse(height, maxSteps, ways, memotable):
 ## COMPLEXITY
 # time -> O(s*h) where h is the height of the staircase and s is the maximum steps we can take
 # space: O(h)
+
+## DYNAMIC PROGRAMMING
+def __staircaseTraversal(height, maxSteps):
+    # Write your code here.
+    
+    # using dynamic programming
+    
+    numberOfWays = [0 for _ in range(height+1)]
+    
+    numberOfWays[0] = 1
+    numberOfWays[1] = 1
+    
+    for currHeight in range(2, height+1):
+        step = 1
+        while step <= currHeight and step <= maxSteps:
+            numberOfWays[currHeight] = numberOfWays[currHeight] + numberOfWays[currHeight-step]
+            step += 1
+        
+    return numberOfWays[-1]
+
