@@ -18,5 +18,5 @@ def traverse(height, maxSteps, ways):
 	return ways
 
 ## COMPLEXITY
-# time -> O(h * 2^s) where h is the height of the staircase and s is the maximum steps we can take
-# space: O(n)
+# time -> O(s^h) where h is the height of the staircase and s is the maximum steps we can take
+# space: O(h)
