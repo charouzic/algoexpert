@@ -13,9 +13,14 @@ def threeNumberSort(array, order):
         
         for idx in range(startOfTheWindow, endOfTheWindow):
             # 1. check the current value
+            if array[idx] != number and array[idxToSwap] == number:
+                idxToSwap = idx
+                
             if array[idx] == number and idx != idxToSwap:
                 swap(array, idxToSwap, idx)
                 idxToSwap += 1
+
+
         
         startOfTheWindow = idxToSwap	
     
@@ -23,8 +28,13 @@ def threeNumberSort(array, order):
         
 def swap(array, i, j):
     array[i], array[j] = array[j], array[i]
+    
+    
+## COMPLEXITY
+# time -> O(n) where n is the length of the array
+# space -> O(1)
 
-array =[-2, -3, -3, -3, -3, -3, -2, -2, -3],
+array =[-2, -3, -3, -3, -3, -3, -2, -2, -3]
 order = [-2, -3, 0]
 
 threeNumberSort(array,order)
