@@ -1,29 +1,29 @@
 def balancedBrackets(string):
     # Write your code here.
+	openingBrackets = "({["
+	closingBrackets = "]})"
+	opositeBracktes ={
+		"(" : ")",
+		"[" : "]",
+		"{" : "}"
+	}
 	
-	roundBracket = 0
-	squareBracket = 0
-	pointyBracket = 0
+	stack = []
 	
-	for i in range(len(string)):
-		if string[i] == "(":
-			roundBracket += 1
+	for character in string:
+		if character in openingBrackets:
+			stack.append(character)
+		elif character in closingBrackets:
+			if len(stack) == 0:
+				return False
+			bracket = stack.pop()
+			if opositeBracktes[bracket] == character:
+				pass
+			else:
+				return False
 			
-		elif string[i] == ")":
-			roundBracket -= 1
-			
-		elif string[i] == "]":
-			squareBracket -= 1
-			
-		elif string[i] == "[":
-			squareBracket += 1
-			
-		elif string[i] == "{":
-			pointyBracket += 1
-			
-		elif string[i] == "}":
-			pointyBracket -= 1
-			
-	return roundBracket == 0 and squareBracket == 0 and pointyBracket == 0
+	return len(stack) == 0
 
-# {[[[[({(}))]]]]}
+string = "{[[[[({(}))]]]]}"
+
+print(balancedBrackets(string))
