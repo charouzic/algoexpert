@@ -10,21 +10,10 @@ def sortStack(stack):
     
     poppedEl = stack.pop()
     
-    if poppedEl < stack[-1]:
-        poppedEl2 = stack.pop()
-        stack.append(poppedEl)
-        poppedEl = poppedEl2
-        sortStack(stack)
-    else:
-        sortStack(stack)
+    sortStack(stack)
     
-    if poppedEl > stack[-1]:
-        stack.append(poppedEl)
-    else:
-        peekedEl = stack.pop()
-        stack.append(poppedEl)
-        stack.append(peekedEl)
-        
+    insertAtSortedPosition(stack, poppedEl)
+    
     return stack
 
 
@@ -41,9 +30,7 @@ def insertAtSortedPosition(stack, value):
         stack.append(value)
         
     return stack
-
-stack = [3, 4, 5, 1, 2]
-
-sortStack(stack)
-
-print(insertAtSortedPosition(stack, 10))
+    
+## COMPLEXITY
+# time -> O(n^2) where n is the number of elements in the stack
+# space -> O(n) as we need to keep the track of calls to stack
