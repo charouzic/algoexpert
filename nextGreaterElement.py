@@ -13,7 +13,7 @@ def nextGreaterElement(array):
         if idx == arrLen:
             idx = 0
             
-        while currValue <= array[idx] and idx != i:
+        while currValue >= array[idx] and idx != i:
             if idx == arrLen-1:
                 idx = 0
             else:
@@ -26,3 +26,6 @@ def nextGreaterElement(array):
             
     return result
 
+array = [2, 5, -3, -4, 6, 7, 2]
+
+nextGreaterElement(array)
