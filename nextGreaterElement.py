@@ -26,6 +26,10 @@ def nextGreaterElement(array):
             
     return result
 
+## COMPLEXITY
+# time: O(n^2) where n is the number of elements in the array
+# space: O(n)
+
 array = [2, 5, -3, -4, 6, 7, 2]
 
 nextGreaterElement(array)
