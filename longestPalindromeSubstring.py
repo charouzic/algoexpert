@@ -37,7 +37,7 @@ def palindrom(string):
         
     return string
 
-def longestPalindromicSubstring(string):
+def _longestPalindromicSubstring(string):
     # Write your code here.
     longestPlaindrom = ""
     
