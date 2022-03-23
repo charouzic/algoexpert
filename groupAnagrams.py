@@ -15,3 +15,7 @@ def groupAnagrams(words):
         result.append(alphabeticallyOrderedStrings[l])
 
     return result
+
+## COMPLEXITY
+# time -> O(w * n * log(n)) where n is the number of letters in the longest word and w is the number of words in the input
+# space -> O(w * n)
