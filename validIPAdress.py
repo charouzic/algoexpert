@@ -35,3 +35,10 @@ def isValidPart(number):
         return False
     
     return len(str(intNumber)) == len(str(number))
+
+
+## COMPLEXITY
+# time --> O(1)
+# space --> O(1)
+# it's because there's up to 12 digit numbers and we can create only given number of IP addresses therefore 
+# the running time is not dependent on the input
