@@ -3,20 +3,24 @@ def minimumCharactersForWords(words):
     result = []
     characters = {}
     for word in words:
-        word = {}
+        w = {}
         for letter in word:
-            if letter not in characters:
-                word[letter] = 1
+            if letter not in w:
+                w[letter] = 1
             else:
-                word[letter] += 1
-        for l in word.keys():
+                w[letter] += 1
+        for l in w.keys():
             if not l in characters:
-                characters[l] = word[l]
+                characters[l] = w[l]
             else:
-                characters[l] = max(characters[l], word[l])
+                characters[l] = max(characters[l], w[l])
                 
     for i in characters.keys():
         for _ in range(characters[i]):
             result.append(i)
             
     return result
+
+words = ["this", "that", "did", "deed", "them!", "a"]
+
+minimumCharactersForWords(words)
