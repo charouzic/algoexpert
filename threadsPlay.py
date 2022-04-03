@@ -22,4 +22,8 @@ even.start()
 odd  = threading.Thread(target=printOdd, args=(20,))
 odd.start()
 
+even.join()
+odd.join()
 
+
+print("done")
