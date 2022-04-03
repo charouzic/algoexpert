@@ -26,5 +26,5 @@ def longestSubstringWithoutDuplication(string):
     return string[stringRange[0]:stringRange[1]]
 
 ## COMPLEXITY
-# time: O() where n is the number of characters in the input string
+# time: O(n^2) where n is the number of characters in the input string
 # space: O(n)
