@@ -7,5 +7,17 @@ class LinkedList:
 
 def reverseLinkedList(head):
     # Write your code here.
-    pass
+	currNode = head
+	previousNode = None
+	
+	while currNode is not None:
+		nextNode = currNode.next
+		currNode.next = previousNode
+		previousNode = currNode
+		currNode = nextNode
+		
+	return previousNode
 
+## COMPLEXITY
+# time: O(n) where n is the number of elements in the linked list
+# space: O(1)
