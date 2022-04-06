@@ -9,14 +9,14 @@ def removeDuplicatesFromLinkedList(linkedList):
     # Write your code here.
     currNode = linkedList
     
-    while currNode.next is not None:
-        if currNode.value == currNode.next.value:
-            if currNode.next.next is not None:
-                currNode.next = currNode.next.next
-            else:
-                currNode.next = None
+    while currNode is not None:
+        distinctNode = currNode.next
         
-        currNode = currNode.next
+        while distinctNode is not None and distinctNode.value == currNode.value:
+            distinctNode = distinctNode.next
+            
+        currNode.next = distinctNode
+        currNode = distinctNode
         
     return linkedList
 
