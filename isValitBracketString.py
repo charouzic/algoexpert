@@ -1,0 +1,2 @@
+def isValidBracketString(string):
+    pass
