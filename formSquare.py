@@ -1,5 +1,3 @@
-import math
-
 from numpy import square
 
 class Point:
